@@ -1,0 +1,151 @@
+.footer {
+   padding: 100px 0;
+   background-color: #061e37;
+
+   &__top {
+      @include flexbox();
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 0 50px 0;
+   }
+
+   &__list {
+      @include flexbox();
+
+      li {
+         margin: 0 0 0 50px;
+      }
+   }
+
+   &__nav {
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
+      @include anim(0.3s, 0s);
+
+      span {
+         position: relative;
+         display: block;
+
+         &:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 50%;
+            bottom: -5px;
+            background-color: #fff;
+            @include anim(0.3s, 0s);
+         }
+      }
+
+      &:hover {
+         span:after {
+            width: 100%;
+            left: 0;
+         }
+
+         opacity: 0.5;
+         color: #fff;
+      }
+   }
+
+   &__bottom {
+      @include flexbox();
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   &__links {
+      span {
+         position: relative;
+
+         &:after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin: 6px 0 0 -22px;
+         }
+      }
+   }
+
+   &__link {
+      opacity: 0.5;
+      font-size: 15px;
+      font-weight: 400;
+      color: #ffffff;
+      @include anim(0.3s, 0s);
+      margin: 0 40px 0 0;
+
+      &:hover {
+         opacity: 1;
+      }
+   }
+
+   &__social {
+      @include flexbox();
+      align-items: center;
+   }
+
+   &__icon {
+      margin: 0 0 0 20px;
+
+      svg {
+         @include anim(0.3s, 0s);
+         opacity: 0.2;
+         fill: #fff;
+      }
+
+      &:hover {
+         svg {
+            opacity: 0.5;
+         }
+      }
+   }
+
+   @media (max-width: $md3+px) {
+      padding: 50px 0;
+
+      &__top {
+         flex-direction: column;
+         gap: 20px;
+         margin: 0 0 5px 0;
+      }
+
+      &__list {
+         // gap: 20px;
+
+         li {
+            margin: 0 15px 15px 15px;
+         }
+      }
+
+      &__bottom {
+         flex-direction: column;
+         gap: 20px;
+      }
+
+      &__links {
+         @include flexbox();
+         gap: 20px;
+
+         span {
+            display: none;
+         }
+      }
+
+      &__link {
+         margin: 0;
+      }
+   }
+
+   @media (max-width: $md4+px) {
+      &__list {
+         flex-wrap: wrap;
+         justify-content: center;
+      }
+   }
+}
